@@ -16,5 +16,10 @@ namespace School_of_net_MVC.Controllers {
             var nome = Request.Query["nome"];
             return Content($"Testando funcionamento de Controllers em ASP.NET Core\nNome: {nome}");
         }
+
+        [HttpGet("Newpage")]
+        public IActionResult Visualizar(){
+            return View();
+        }
     }
 }
