@@ -13,7 +13,8 @@ namespace School_of_net_MVC.Controllers {
 
         [HttpGet("son")]
         public IActionResult SchoolOfNet(){
-            return Content("Testando funcionamento de Controllers em ASP.NET Core");
+            var nome = Request.Query["nome"];
+            return Content($"Testando funcionamento de Controllers em ASP.NET Core\nNome: {nome}");
         }
     }
 }
