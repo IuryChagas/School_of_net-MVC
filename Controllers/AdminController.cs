@@ -3,16 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace School_of_net_MVC.Controllers {
 
-    [Route("nova/rota/caminho")]
+    [Route("painel/admin")] // Para mapear rotas customizadas!
     public class AdminController : Controller {
 
-        [HttpGet("criando")]
-        public IActionResult Index(){
-            return Content("Teste - criando controllers");
+        [HttpGet("principal/{name}")] //  essas rotas estão em mesmo nível de hierarquia
+        public IActionResult Index(string name){
+            return Content("Teste - criando controllers\nNome: "+name);
         }
 
-        [HttpGet("subaction")] // é possível criar alias customizadas para setar rotas
-        [HttpGet("novasubaction")] //  também é possível criar mais de uma alias para uma mesma subpage
+        [HttpGet("son")] // é possível criar alias customizadas para setar rotas
         public IActionResult SchoolOfNet(){
             return Content("Testando funcionamento de Controllers em ASP.NET Core");
         }
