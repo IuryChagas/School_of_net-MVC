@@ -20,7 +20,7 @@ namespace School_of_net_MVC.Controllers {
         [HttpGet("Newpage")]
         public IActionResult Visualizar(){
             ViewData["Hellow World"] = false;
-            return View();
+            return View("nada");
         }
     }
 }
