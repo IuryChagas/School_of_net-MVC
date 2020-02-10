@@ -6,9 +6,9 @@ namespace School_of_net_MVC.Controllers {
     [Route("painel/admin")]
     public class AdminController : Controller {
 
-        [HttpGet("principal/{number:int?}")]
-        public IActionResult Index(int number){
-            return Content($"Teste - customizando valores em rotas\nnúmero informado: {number}");
+        [HttpGet("principal/{number:int?}/{name}")]
+        public IActionResult Index(int number, string name){
+            return Content($"Teste - customizando valores em rotas\nNúmero informado: {number}\nNome: {name}");
         }
 
         [HttpGet("son")]
