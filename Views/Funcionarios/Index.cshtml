@@ -1,0 +1,20 @@
+@model IEnumerable<School_of_net_MVC.Models.Funcionario>
+<style>
+    h2 { margin-bottom: 2rem; }
+     p { 
+         
+         margin-bottom: .275rem;
+     }
+</style>
+<h2>Todos os funcionários</h2>
+
+@foreach (var funcionario in Model) {
+    <p><strong>NOME:</strong> @funcionario.Nome</p>
+    <p><strong>CPF:</strong> @funcionario.Cpf</p>
+    <p><strong>Salário:</strong> @funcionario.Salario</p>
+    <a href="/Funcionarios/Editar/@funcionario.Id">Editar</a>
+    <p />
+    <br>
+}
+
+<a href="/Funcionarios/Cadastrar" class="btn btn-success">Cadastrar Novo Funcionario</a>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using School_of_net_MVC.Models;
 using System.Globalization;
 using School_of_net_MVC.Database;
+using System.Linq;
 
 namespace School_of_net_MVC.Controllers {
     public class FuncionariosController : Controller {
@@ -12,6 +13,11 @@ namespace School_of_net_MVC.Controllers {
         public FuncionariosController(ApplicationDBContext database){
             this.database = database;
         }
+
+        public IActionResult Index(){
+            var funcionarios = database.Funcionarios.ToList();
+            return View(funcionarios);
+        }
         public IActionResult Cadastrar(){
             return View();
         }
@@ -20,7 +26,7 @@ namespace School_of_net_MVC.Controllers {
         public IActionResult Salvar(Funcionario funcionario){
             database.Funcionarios.Add(funcionario);
             database.SaveChanges();
-            return Content($"Nome: {funcionario.Nome}\nSalário: {funcionario.Salario.ToString("F2", CultureInfo.InvariantCulture)}\nCPF: {funcionario.Cpf}\n\nFuncionário cadastrado com sucesso!");
+            return RedirectToAction("Index");
         }
     }
 }
