@@ -22,9 +22,22 @@ namespace School_of_net_MVC.Controllers {
             return View();
         }
 
+        public IActionResult Editar(int id){
+            Funcionario funcionario = database.Funcionarios.First(registro => registro.Id == id); 
+            return View("Cadastrar", funcionario);
+        }
+
         [HttpPost]
         public IActionResult Salvar(Funcionario funcionario){
-            database.Funcionarios.Add(funcionario);
+            if(funcionario.Id == 0){
+                database.Funcionarios.Add(funcionario);
+            }else{
+                Funcionario funcionarioDoBanco = database.Funcionarios.First(registro => registro.Id == funcionario.Id);
+                funcionarioDoBanco.Nome = funcionario.Nome;
+                funcionarioDoBanco.Cpf = funcionario.Cpf;
+                funcionario.Salario = funcionario.Salario;
+            }
+            
             database.SaveChanges();
             return RedirectToAction("Index");
         }

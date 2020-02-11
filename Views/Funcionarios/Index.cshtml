@@ -11,7 +11,7 @@
 @foreach (var funcionario in Model) {
     <p><strong>NOME:</strong> @funcionario.Nome</p>
     <p><strong>CPF:</strong> @funcionario.Cpf</p>
-    <p><strong>Salário:</strong> @funcionario.Salario</p>
+    <p><strong>Salário:</strong> U$@funcionario.Salario</p>
     <a href="/Funcionarios/Editar/@funcionario.Id">Editar</a>
     <p />
     <br>

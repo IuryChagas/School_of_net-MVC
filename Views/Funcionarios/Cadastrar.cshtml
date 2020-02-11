@@ -3,6 +3,7 @@
 <h2 style="width: 50%; margin: 0 auto; text-align: center;">Cadastro de Funcionarios</h2>
 
 <form class="form-horizontal" asp-controller="Funcionarios" asp-action="Salvar" method="POST" style="width: 50%; margin: 0 auto;">
+    <input type="hidden" asp-for="Id">
     <input type="text" class="form-control" asp-for="Nome" placeholder="Nome" style="margin: 0.375rem;">
     <input type="number" class="form-control" asp-for="Salario" placeholder="Salário" style="margin: 0.375rem;">
     <input type="text" class="form-control" asp-for="Cpf" placeholder="CPF" style="margin: 0.375rem;">
