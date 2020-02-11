@@ -26,7 +26,12 @@ namespace School_of_net_MVC.Controllers {
             Funcionario funcionario = database.Funcionarios.First(registro => registro.Id == id); 
             return View("Cadastrar", funcionario);
         }
-
+        public IActionResult Excluir(int id){
+            Funcionario funcionario = database.Funcionarios.First(registro => registro.Id == id);
+            database.Funcionarios.Remove(funcionario);
+            database.SaveChanges();
+            return RedirectToAction("Index");
+        }
         [HttpPost]
         public IActionResult Salvar(Funcionario funcionario){
             if(funcionario.Id == 0){

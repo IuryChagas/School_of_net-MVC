@@ -2,7 +2,6 @@
 <style>
     h2 { margin-bottom: 2rem; }
      p { 
-         
          margin-bottom: .275rem;
      }
 </style>
@@ -12,9 +11,10 @@
     <p><strong>NOME:</strong> @funcionario.Nome</p>
     <p><strong>CPF:</strong> @funcionario.Cpf</p>
     <p><strong>Salário:</strong> U$@funcionario.Salario</p>
-    <a href="/Funcionarios/Editar/@funcionario.Id">Editar</a>
+    <a href="/Funcionarios/Editar/@funcionario.Id" class="btn btn-success">Editar</a>
+    <a href="/Funcionarios/Excluir/@funcionario.Id" class="btn btn-danger">Excluir</a>
     <p />
-    <br>
+    <hr>
 }
 
 <a href="/Funcionarios/Cadastrar" class="btn btn-success">Cadastrar Novo Funcionario</a>
