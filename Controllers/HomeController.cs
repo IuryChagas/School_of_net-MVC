@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using School_of_net_MVC.Database;
 using School_of_net_MVC.Models;
@@ -57,23 +58,29 @@ namespace School_of_net_MVC.Controllers {
 
         public IActionResult Relacionamento(){
 
-            Produto produto0 = new Produto();
-            produto0.Nome = "Notebook";
-            produto0.Categoria = database.Categorias.First(c => c.Id == 1);
+            // Produto produto0 = new Produto();
+            // produto0.Nome = "Notebook";
+            // produto0.Categoria = database.Categorias.First(c => c.Id == 1);
 
-            Produto produto1 = new Produto();
-            produto1.Nome = "SSD";
-            produto1.Categoria = database.Categorias.First(c => c.Id == 1);
+            // Produto produto1 = new Produto();
+            // produto1.Nome = "SSD";
+            // produto1.Categoria = database.Categorias.First(c => c.Id == 1);
 
-            Produto produto2 = new Produto();
-            produto2.Nome = "Teclado";
-            produto2.Categoria = database.Categorias.First(c => c.Id == 2);
+            // Produto produto2 = new Produto();
+            // produto2.Nome = "Teclado";
+            // produto2.Categoria = database.Categorias.First(c => c.Id == 2);
 
-            database.Add(produto0);
-            database.Add(produto1);
-            database.Add(produto2);
+            // database.Add(produto0);
+            // database.Add(produto1);
+            // database.Add(produto2);
 
-            database.SaveChanges();
+            // database.SaveChanges();
+
+            var listaDeProdutos = database.Produtos.Include(produto => produto.Categoria).ToList();
+
+            listaDeProdutos.ForEach(produto => {
+                Console.WriteLine(produto.ToString());
+            });
 
             return Content("Relacionamento");
         }

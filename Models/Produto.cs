@@ -5,5 +5,8 @@ namespace School_of_net_MVC.Models {
         public Categoria Categoria { get; set; } 
         // para definir o relacionamento entre produto com categoria.
         // Relação de 1 p 1: Ou seja, o produto tem uma categoria!!
+        public override string ToString(){
+            return $"Id: {this.Id}\nNome: {this.Nome}\nCategoria: [{this.Categoria.ToString()}]";
+        }
     }
 }
