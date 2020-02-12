@@ -11,5 +11,8 @@ namespace School_of_net_MVC.Database {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) {
             
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
+            optionsBuilder.UseLazyLoadingProxies();
+        }
     }
 }

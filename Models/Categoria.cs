@@ -4,7 +4,7 @@ namespace School_of_net_MVC.Models {
         public string Nome { get; set; }
 
         public override string ToString(){
-            return $"Id: {this.Id}\nNome: {this.Nome}";
+            return " Id: "+ this.Id +" Nome: "+ this.Nome;
         }
     }
 }
