@@ -61,14 +61,13 @@ namespace School_of_net_MVC.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
-                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
-                        .HasMaxLength(100);
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("NovoNomeDaTabela");
+                    b.ToTable("Produtos");
                 });
 
             modelBuilder.Entity("School_of_net_MVC.Models.Produto", b =>
