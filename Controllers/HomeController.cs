@@ -76,11 +76,20 @@ namespace School_of_net_MVC.Controllers {
 
             // database.SaveChanges();
 
-            var listaDeProdutos = database.Produtos.Include(produto => produto.Categoria).ToList();
+            // var listaDeProdutos = database.Produtos.Include(produto => produto.Categoria).ToList();
 
-            listaDeProdutos.ForEach(produto => {
-                Console.WriteLine(produto.ToString());
-            });
+            // listaDeProdutos.ForEach(produto => {
+            //     Console.WriteLine(produto.ToString());
+            // });
+
+            // Para listar todos os produtos de uma única categoria!
+            var listaDeProdutosDeCategoria = database.Produtos.Include(p => p.Categoria).Where(p => p.Categoria.Id == 1).ToList();
+
+            listaDeProdutosDeCategoria.ForEach(
+                produto => {
+                    Console.WriteLine(produto.ToString());
+                }
+            );
 
             return Content("Relacionamento");
         }
