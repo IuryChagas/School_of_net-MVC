@@ -16,13 +16,6 @@ namespace School_of_net_MVC.Controllers {
         public HomeController(ApplicationDBContext database){
             this.database = database;
         }
-
-        // private readonly ILogger<HomeController> _logger;
-
-        // public HomeController (ILogger<HomeController> logger) {
-        //     _logger = logger;
-        // }
-
         public IActionResult Index () {
             return View ();
         }
@@ -60,6 +53,29 @@ namespace School_of_net_MVC.Controllers {
 
             Console.WriteLine("===============================================");
             return Content("Dados Salvos!");
+        }
+
+        public IActionResult Relacionamento(){
+
+            Produto produto0 = new Produto();
+            produto0.Nome = "Notebook";
+            produto0.Categoria = database.Categorias.First(c => c.Id == 1);
+
+            Produto produto1 = new Produto();
+            produto1.Nome = "SSD";
+            produto1.Categoria = database.Categorias.First(c => c.Id == 1);
+
+            Produto produto2 = new Produto();
+            produto2.Nome = "Teclado";
+            produto2.Categoria = database.Categorias.First(c => c.Id == 2);
+
+            database.Add(produto0);
+            database.Add(produto1);
+            database.Add(produto2);
+
+            database.SaveChanges();
+
+            return Content("Relacionamento");
         }
 
         [ResponseCache (Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
