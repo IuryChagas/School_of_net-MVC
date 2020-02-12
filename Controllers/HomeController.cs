@@ -32,24 +32,33 @@ namespace School_of_net_MVC.Controllers {
         }
 
         public IActionResult Teste(){
-            Categoria c1 = new Categoria();
-                c1.Nome = "Comercial";
-            Categoria c2 = new Categoria();
-                c2.Nome = "Marketing";
-            Categoria c3 = new Categoria();
-                c3.Nome = "Support";
-            Categoria c4 = new Categoria();
-                c4.Nome = "Juridico";
+            // Categoria c1 = new Categoria();
+            //     c1.Nome = "Comercial";
+            // Categoria c2 = new Categoria();
+            //     c2.Nome = "Marketing";
+            // Categoria c3 = new Categoria();
+            //     c3.Nome = "Support";
+            // Categoria c4 = new Categoria();
+            //     c4.Nome = "Juridico";
 
-            List<Categoria> listaCategoria = new List<Categoria>();
-            listaCategoria.Add(c1);
-            listaCategoria.Add(c2);
-            listaCategoria.Add(c3);
-            listaCategoria.Add(c4);
+            // List<Categoria> listCat = new List<Categoria>();
+            // listCat.Add(c1);
+            // listCat.Add(c2);
+            // listCat.Add(c3);
+            // listCat.Add(c4);
 
-            database.AddRange(listaCategoria);
-            database.SaveChanges();
+            // database.AddRange(listCat);
+            // database.SaveChanges();
 
+            var listaCategorias = database.Categorias.Where(cat => cat.Id  < 3).ToList();
+
+            Console.WriteLine("=================== Setores ===================");
+
+                listaCategorias.ForEach(categoria => {
+                    Console.WriteLine(categoria.ToString());
+                });
+
+            Console.WriteLine("===============================================");
             return Content("Dados Salvos!");
         }
 
